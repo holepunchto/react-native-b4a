@@ -4,6 +4,13 @@ project(react-native-b4a)
 
 add_library(react-native-b4a STATIC)
 
+set_target_properties(
+  react-native-b4a
+  PROPERTIES
+  CXX_STANDARD 20
+  CXX_SCAN_FOR_MODULES OFF
+)
+
 target_sources(
   react-native-b4a
   PRIVATE
