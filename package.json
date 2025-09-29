@@ -1,6 +1,6 @@
 {
   "name": "react-native-b4a",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Bridging the gap between buffers and typed arrays in React Native",
   "main": "./index.js",
   "files": [
