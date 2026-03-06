@@ -1,6 +1,4 @@
-const {
-  default: NativeBufferForArray
-} = require('./specs/NativeBufferForArray')
+const { default: NativeBufferForArray } = require('./specs/NativeBufferForArray')
 
 const ascii = require('./lib/ascii')
 const base64 = require('./lib/base64')
@@ -228,28 +226,11 @@ exports.includes = function includes(buffer, value, byteOffset, encoding) {
 }
 
 exports.indexOf = function indexOf(buffer, value, byteOffset, encoding) {
-  return bidirectionalIndexOf(
-    buffer,
-    value,
-    byteOffset,
-    encoding,
-    true /* first */
-  )
+  return bidirectionalIndexOf(buffer, value, byteOffset, encoding, true /* first */)
 }
 
-exports.lastIndexOf = function lastIndexOf(
-  buffer,
-  value,
-  byteOffset,
-  encoding
-) {
-  return bidirectionalIndexOf(
-    buffer,
-    value,
-    byteOffset,
-    encoding,
-    false /* last */
-  )
+exports.lastIndexOf = function lastIndexOf(buffer, value, byteOffset, encoding) {
+  return bidirectionalIndexOf(buffer, value, byteOffset, encoding, false /* last */)
 }
 
 function bidirectionalIndexOf(buffer, value, byteOffset, encoding, first) {
@@ -329,8 +310,7 @@ function swap(buffer, n, m) {
 exports.swap16 = function swap16(buffer) {
   const len = buffer.byteLength
 
-  if (len % 2 !== 0)
-    throw new RangeError('Buffer size must be a multiple of 16-bits')
+  if (len % 2 !== 0) throw new RangeError('Buffer size must be a multiple of 16-bits')
 
   for (let i = 0; i < len; i += 2) swap(buffer, i, i + 1)
 
@@ -340,8 +320,7 @@ exports.swap16 = function swap16(buffer) {
 exports.swap32 = function swap32(buffer) {
   const len = buffer.byteLength
 
-  if (len % 4 !== 0)
-    throw new RangeError('Buffer size must be a multiple of 32-bits')
+  if (len % 4 !== 0) throw new RangeError('Buffer size must be a multiple of 32-bits')
 
   for (let i = 0; i < len; i += 4) {
     swap(buffer, i, i + 3)
@@ -354,8 +333,7 @@ exports.swap32 = function swap32(buffer) {
 exports.swap64 = function swap64(buffer) {
   const len = buffer.byteLength
 
-  if (len % 8 !== 0)
-    throw new RangeError('Buffer size must be a multiple of 64-bits')
+  if (len % 8 !== 0) throw new RangeError('Buffer size must be a multiple of 64-bits')
 
   for (let i = 0; i < len; i += 8) {
     swap(buffer, i, i + 7)
@@ -371,12 +349,7 @@ exports.toBuffer = function toBuffer(buffer) {
   return buffer
 }
 
-exports.toString = function toString(
-  buffer,
-  encoding,
-  start = 0,
-  end = buffer.byteLength
-) {
+exports.toString = function toString(buffer, encoding, start = 0, end = buffer.byteLength) {
   // toString(buffer)
   if (arguments.length === 1) return utf8.toString(buffer)
 

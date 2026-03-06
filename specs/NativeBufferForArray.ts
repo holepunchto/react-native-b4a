@@ -6,39 +6,19 @@ export interface Spec extends TurboModule {
 
   toStringUTF8(buffer: Object, offset: number, length: number): string
 
-  writeUTF8(
-    buffer: Object,
-    offset: number,
-    length: number,
-    string: string
-  ): number
+  writeUTF8(buffer: Object, offset: number, length: number, string: string): number
 
   toStringUTF16(buffer: Object, offset: number, length: number): string
 
-  writeUTF16(
-    buffer: Object,
-    offset: number,
-    length: number,
-    string: string
-  ): number
+  writeUTF16(buffer: Object, offset: number, length: number, string: string): number
 
   toStringBase64(buffer: Object, offset: number, length: number): string
 
-  writeBase64(
-    buffer: Object,
-    offset: number,
-    length: number,
-    string: string
-  ): number
+  writeBase64(buffer: Object, offset: number, length: number, string: string): number
 
   toStringHex(buffer: Object, offset: number, length: number): string
 
-  writeHex(
-    buffer: Object,
-    offset: number,
-    length: number,
-    string: string
-  ): number
+  writeHex(buffer: Object, offset: number, length: number, string: string): number
 }
 
 export default TurboModuleRegistry.getEnforcing<Spec>('BufferForArray')
