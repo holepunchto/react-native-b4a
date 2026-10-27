@@ -254,7 +254,7 @@ function bidirectionalIndexOf(buffer, value, byteOffset, encoding, first) {
   }
 
   if (typeof value === 'string') {
-    value = from(value, encoding)
+    value = exports.from(value, encoding)
   } else if (typeof value === 'number') {
     value = value & 0xff
 
